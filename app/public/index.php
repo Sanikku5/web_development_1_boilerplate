@@ -13,11 +13,12 @@ use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
 
 /**
- * Define the routes for the application.
+ * Define the routes for the application that you want to provide.
  */
 $dispatcher = simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', ['App\Controllers\HomeController', 'home']);
     $r->addRoute('GET', '/hello/{name}', ['App\Controllers\HelloController', 'greet']);
+    $r->addRoute('GET', '/guestbook', ['App\Controllers\GuestbookController', 'getAll']);
 });
 
 
@@ -42,7 +43,7 @@ switch ($routeInfo[0]) {
         http_response_code(405);
         echo 'Method Not Allowed';
         break;
-    // Handle found routes
+    // Handle found routess
     case FastRoute\Dispatcher::FOUND:
         /**
          * $routeInfo contains the data about the matched route.
@@ -56,6 +57,15 @@ switch ($routeInfo[0]) {
          */
 
         // TODO: invoke the controller and method using the data in $routeInfo[1]
+        $controllerName = $routeInfo[1][0];
+        $methodName = $routeInfo[1][1];
+        $queryVars = $routeInfo[2];
+
+        echo "Controller: ".$controllerName."<br>";
+        echo "Method: ".$methodName."<br><br>";
+        
+        $controller = new $controllerName();
+        $controller -> $methodName( $queryVars );
 
         /**
          * $route[2] contains any dynamic parameters parsed from the URL.
@@ -66,7 +76,9 @@ switch ($routeInfo[0]) {
 
         // TODO: pass the dynamic route data to the controller method
         // When done, visiting `http://localhost/hello/dan-the-man` should output "Hi, dan-the-man!"
-        throw new Exception('Not implemented yet');
+
+
+        // throw new Exception('Not implemented yet');
 
         break;
 }

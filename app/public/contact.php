@@ -1,3 +1,9 @@
+<div class="tenor-gif-embed" data-postid="10067072887923246131" data-share-method="host" data-aspect-ratio="1.07568" data-width="20%">
+    <a href="https://tenor.com/view/bingchilling-gif-10067072887923246131">
+        Bingchilling GIF
+    </a>from <a href="https://tenor.com/search/bingchilling-gifs">Bingchilling GIFs</a>
+</div> 
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 <?php
 
 /**
@@ -19,7 +25,7 @@
  *  Note: Use of `htmlspecialchars`. Research why this is used here when displaying user supplied data in the browser.
  */
 
-if (FALSE) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize input
     $name = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email = htmlspecialchars(trim($_POST['email'] ?? ''));

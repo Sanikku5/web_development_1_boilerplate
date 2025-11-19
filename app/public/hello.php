@@ -1,5 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        var_dump($_GET);
+        if(isset($_GET['name']))
+        {
+            $name = $_GET['name'];
+            echo '<h1>Hello '.$name.'</h1>';
+        }
+        else
+        {
+            echo '<h1>Specify name in url pls</h1>';
+            echo '<p>Like http://localhost/hello.php?name=Alice</p>';
+        }
+    ?>
+    <div>
+        <iframe src="https://giphy.com/embed/RMZBsdFnax7mo" width="480" height="480" style="" frameBorder="0"
+        class="giphy-embed" allowFullScreen></iframe>
+    </div>
+</body>
+</html>
 <?php
-
 /**
  * PHP has several global variables that are available in all scopes.
  * 
@@ -29,16 +55,10 @@
  */
 
 // Note the `echo` outputs text to the HTTP response body directly (you will see this in the browser).
-echo 'Hello world!';
+// echo 'Hello world!';
 
 // Note: PHP is a templating language, so you can mix HTML and PHP code in the same file.
 // To start writing HTML, just close the PHP tag like this:
 
 // View source code in the browser to see the HTML output. Anything missing? 😱😱😱
-
 ?>
-
-<div>
-    <iframe src="https://giphy.com/embed/xTk9ZY0C9ZWM2NgmCA" width="480" height="480" style="" frameBorder="0"
-        class="giphy-embed" allowFullScreen></iframe>
-</div>
