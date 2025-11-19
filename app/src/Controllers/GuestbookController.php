@@ -23,7 +23,6 @@ class GuestbookController
             $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // ECHO "Database connection established successfully.";
 
-            
             $result = $connection -> query(query: "SELECT * FROM posts");
             $posts = $result-> fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,5 +33,9 @@ class GuestbookController
             //Handle connection error
             die('Database Connection Failed: ' . $e -> getMessage());
         }
+    }
+
+    public function createGuestbookMessage(){
+        
     }
 }
