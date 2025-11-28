@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This is the central route handler of the application.
  * It uses FastRoute to map URLs to controller methods.
@@ -41,6 +40,7 @@ switch ($routeInfo[0]) {
     // Handle routes that were invoked with the wrong HTTP method
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         http_response_code(405);
+        echo $routeInfo;
         echo 'Method Not Allowed';
         break;
     // Handle found routess

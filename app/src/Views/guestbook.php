@@ -13,7 +13,7 @@
         <iframe src="https://giphy.com/embed/RMZBsdFnax7mo" width="480" height="480" style="" frameBorder="0"
             class="giphy-embed" allowFullScreen></iframe>
     </div>
-    <form action="/guestbook" method="POST">
+    <form action="guestbook" method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
 
